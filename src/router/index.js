@@ -43,9 +43,9 @@ const router = new Router({
 
       route('CandidateList', null, 'views/candidatelist'),
 
-      route('BannerList', null, 'views/banners'),
-
       route('AddNotes', null, 'views/addnotes'),
+
+      route('BannerList', null, 'views/Banners'),
 
       route('Notification', null, 'views/notification'),
 

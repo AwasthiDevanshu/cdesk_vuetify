@@ -3,6 +3,7 @@
     id="dashboard-view"
     fluid
     tag="section"
+    
   >
     <v-row>
       <v-col cols="12">

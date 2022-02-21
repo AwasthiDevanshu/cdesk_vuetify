@@ -68,6 +68,11 @@ const state = {
       to: '/views/CandidateList/',
     },
     {
+      title: 'Add Notes',
+      icon: 'mdi-note-outline',
+      to: '/views/AddNotes/',
+    },
+    {
       title: 'Banners',
       icon: 'mdi-chart-bubble',
       to: '/views/Banners/',
