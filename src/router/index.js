@@ -35,7 +35,7 @@ const router = new Router({
 
       route('CourseList', null, 'views/courselist'),
 
-      // route('AddVideo', null, 'views/addvideo'),
+
 
       route('AddCourse', null, 'views/addcourse'),
 
@@ -45,15 +45,23 @@ const router = new Router({
 
       route('AddNotes', null, 'views/addnotes'),
 
-      route('BannerList', null, 'views/Banners'),
+
+
+      route('BannerList', null, 'views/BannerList'),
 
       route('Notification', null, 'views/notification'),
 
-      route('EnquiryList', null, 'views/enquiry'),
+      route('EnquiryPage', null, 'views/EnquiryPage'),
 
       route('UserList', null, 'views/userlist'),
 
       route('ScoreSheet', null, 'views/scoresheet'),
+
+      route('AddTestSeries', null, 'views/AddTestSeries'),
+
+      route('EditCourse', null, 'views/EditCourse'),
+
+      route('TimeTable', null, 'views/TimeTable'),
 
     ]),
   ],

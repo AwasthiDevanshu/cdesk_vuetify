@@ -1,73 +1,83 @@
  <template>
   <v-container fluid tag="section">
     <v-row>
-      <v-col>
-        <v-row>
-          <v-col class="adnot">
-            <material-card
-              icon="mdi-bell-ring"
-              icon-small
-              title="Add Notification"
-              color="#ff9800"
-            >
-              <div style="padding: 2rem">
-                <v-form ref="form" v-model="valid" lazy-validation>
+      <v-col class="adnot">
+        <material-card
+          icon="mdi-bell-ring"
+          icon-small
+          title="Add Notification"
+          color="accent"
+          cols="12"
+          sm="12"
+          md="6"
+          lg="6"
+        >
+          <div style="padding: 2rem">
+            <v-form ref="form" v-model="valid">
+              <v-row>
+                <v-col cols="12" sm="12" md="6" lg="6">
                   <v-text-field
                     v-model="name"
                     label="Title"
                     placeholder="Enter Title"
-                    cols="12"
-                    sm="6"
-                    md="6"
-                    lg="4"
+                    prepend-icon="mdi-feather"
                   ></v-text-field>
-
-                  <v-file-input
-                    cols="12"
-                    sm="4"
-                    md="4"
-                    lg="4"
-                    placeholder="Choose File"
-                  ></v-file-input>
-
-                  <v-textarea
-                    autocomplete="Message"
-                    label="Message"
-                  ></v-textarea>
-
+                </v-col>
+                <v-col cols="12" sm="12" md="6" lg="6">
+                  <v-file-input placeholder="Choose File"></v-file-input>
+                </v-col>
+              </v-row>
+              <v-row>
+                <!-- <v-col cols="12" sm="12" md="6" lg="6"
+                  > -->
+                <v-textarea
+                  class="mx-2"
+                  prepend-icon="mdi-comment-outline"
+                  label="Message"
+                  rows="1"
+                ></v-textarea>
+                <!-- </v-col> -->
+              </v-row>
+              <v-row>
+                <v-col cols="12" sm="6" md="3" lg="3">
                   <v-checkbox
                     v-model="checkbox"
                     :rules="[(v) => !!v || 'You must agree to continue!']"
                     label="Send Now"
                     required
                     style="display: inline"
-                  ></v-checkbox>
+                  ></v-checkbox
+                ></v-col>
+
+                <v-col cols="12" sm="6" md="3" lg="3">
                   <v-checkbox
                     v-model="checkbox"
                     :rules="[(v) => !!v || 'You must agree to continue!']"
                     label="Is Repeated?"
                     required
                     style="display: inline"
-                  ></v-checkbox>
-
-                  <v-btn color="grey" @click="resetValidation"> Submit </v-btn>
-                </v-form>
+                  ></v-checkbox
+                ></v-col>
+              </v-row>
+              <div id="submit" class="text-center">
+                <v-btn
+                  color="grey lighten-4"
+                  text--white
+                  @click="resetValidation"
+                >
+                  Submit
+                </v-btn>
               </div>
-            </material-card></v-col
-          ></v-row
-        ></v-col
+            </v-form>
+          </div>
+        </material-card></v-col
       ></v-row
-    ></v-container
-  >
-</template>
-            </material-card>
-          </v-col>
-        </v-row>
-      </v-col>
-    </v-row>
+    >
+    <!-- ></v-col
+      ></v-row -->
   </v-container>
 </template>
-
+            
 <script>
 import "quill/dist/quill.core.css";
 import "quill/dist/quill.snow.css";
@@ -157,3 +167,8 @@ export default {
   },
 };
 </script>
+<style scoped>
+#submit {
+  margin-top: 3rem;
+}
+</style>

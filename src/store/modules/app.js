@@ -72,16 +72,20 @@ const state = {
       icon: 'mdi-note-outline',
       to: '/views/AddNotes/',
     },
+    
     {
       title: 'Banners',
       icon: 'mdi-chart-bubble',
-      to: '/views/Banners/',
+      to: '/views/BannerList/',
     },
     {
       title: 'Add Notification',
       icon: 'mdi-bell-ring',
       to: '/views/Notification/',
     },
+
+    
+
     {
       title: 'Score Sheet',
       icon: 'mdi-newspaper-variant-outline',
@@ -90,14 +94,30 @@ const state = {
     {
       title: 'Enquiries',
       icon: 'mdi-check-all',
-      to: '/views/Enquiry/',
+      to: '/views/EnquiryPage/',
     },
     {
       title: 'User Management',
       icon: 'mdi-account-details',
       to: '/views/UserList/',
     },
+    {
+      title: 'Add Test Series',
+      icon: 'mdi-chart-box-plus-outline',
+      to: '/views/addtestseries/',
+    },
+    {
+      title: 'Edit Course',
+      icon: 'mdi-pencil',
+      to: '/views/editcourse/',
+    },
+    {
+      title: 'Add Time Table',
+      icon: 'mdi-table',
+      to: '/views/timetable/',
+    },
   ],
+
 }
 
 const mutations = make.mutations(state)
