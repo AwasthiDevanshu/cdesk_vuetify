@@ -41,7 +41,8 @@ const router = new Router({
 
       route('AddVideo', null, 'views/addvideo'),
 
-      route('CandidateList', null, 'views/candidatelist'),
+      // route('CandidateList', null, 'views/candidatelist'),
+      route('CandList', null, 'views/candlist'),
 
       route('AddNotes', null, 'views/addnotes'),
 

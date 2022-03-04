@@ -1,7 +1,7 @@
 <template>
   <div class="team">
     <v-card elevation="4" class="card1">
-      <v-btn large flat fab class="grey darken-2 white--text">
+      <v-btn   large flat fab class="grey darken-2 white--text">
         <v-icon> mdi-plus </v-icon>
       </v-btn>
     </v-card>
@@ -51,7 +51,14 @@
               <v-tooltip bottom>
                 <template v-slot:activator="{ on, attrs }">
                   <v-btn class="mx-2" fab dark small color="#4caf50">
-                    <v-icon v-bind="attrs" v-on="on" dark> mdi-pencil </v-icon>
+                    <v-icon
+                      click="editCandidateModal(item, index)"
+                      v-bind="attrs"
+                      v-on="on"
+                      dark
+                    >
+                      mdi-pencil
+                    </v-icon>
                   </v-btn>
                 </template>
                 <span>Edit</span>
@@ -128,6 +135,16 @@ export default {
       deleteModal: false,
       disabled: "disabled",
       courseId: 0,
+
+      items: [
+        "Online Course",
+        "Offline Course",
+        "Individual Course",
+        "Complete Course",
+        "Crash Course",
+        "Marathon Course",
+      ],
+      items2: ["Normal", "New", "Popular", "Top 10", "Recommended"],
     };
   },
   created() {
@@ -183,15 +200,15 @@ export default {
       });
     },
     showCourseVideoList(item) {
-      this.$router.push("/courseVideos/" + item.courseId);
+      this.$router.replace("/courseVideos/" + item.courseId);
     },
 
     editCourseList(item) {
-      this.$router.push("/editCourse/" + item.courseId);
+      this.$router.replace("/EditCourse/" + item.courseId);
     },
 
     showtimeTable(item) {
-      this.$router.push("/timeTable/" + item.courseId);
+      this.$router.replace("/timeTable/" + item.courseId);
     },
 
     deleteCourse() {
@@ -214,7 +231,7 @@ export default {
     },
 
     showNotesList(item) {
-      this.$router.push("/gnotes/" + item.courseId);
+      this.$router.replace("/gnotes/" + item.courseId);
     },
   },
 };

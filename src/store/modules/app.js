@@ -62,10 +62,15 @@ const state = {
       icon: 'mdi-youtube',
       to: '/views/AddVideo/',
     },
+    // {
+    //   title: 'Candidate List',
+    //   icon: 'mdi-clipboard-list-outline',
+    //   to: '/views/CandidateList/',
+    // },
     {
       title: 'Candidate List',
       icon: 'mdi-clipboard-list-outline',
-      to: '/views/CandidateList/',
+      to: '/views/CandList/',
     },
     {
       title: 'Add Notes',

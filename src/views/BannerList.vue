@@ -96,14 +96,14 @@
                                   ref="menu"
                                   v-model="menu"
                                   :close-on-content-click="false"
-                                  :return-value.sync="date"
+                                  :return-value.sync="date0"
                                   transition="scale-transition"
                                   offset-y
                                   min-width="auto"
                                 >
                                   <template v-slot:activator="{ on, attrs }">
                                     <v-text-field
-                                      v-model="date"
+                                      v-model="date0"
                                       label="Valid To"
                                       prepend-icon="mdi-calendar"
                                       readonly
@@ -112,7 +112,7 @@
                                     ></v-text-field>
                                   </template>
                                   <v-date-picker
-                                    v-model="date"
+                                    v-model="date0"
                                     no-title
                                     scrollable
                                   >
@@ -127,7 +127,7 @@
                                     <v-btn
                                       text
                                       color="primary"
-                                      @click="$refs.menu.save(date)"
+                                      @click="$refs.menu.save(date0)"
                                     >
                                       OK
                                     </v-btn>
@@ -188,6 +188,16 @@ export default {
     modal: false,
     menu2: false,
     radioGroup: 1,
+   
+
+    date0: new Date(Date.now() - new Date().getTimezoneOffset() * 60000)
+      .toISOString()
+      .substr(0, 10),
+    menu: false,
+    modal: false,
+    menu2: false,
+    radioGroup: 1,
+
   }),
 };
 </script>

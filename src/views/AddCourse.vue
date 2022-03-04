@@ -1,69 +1,99 @@
 <template>
   <div id="only">
-    <validation-observer
-      ref="observer"
-      v-slot="{ invalid }"
-    >
+    <validation-observer ref="observer" v-slot="{ invalid }">
       <form @submit.prevent="submit">
-        <validation-provider
+        <!-- <validation-provider
           v-slot="{ errors }"
           name="Title"
           rules="required|max:10"
-        >
-          <v-text-field
-            v-model="name"
-            :counter="10"
-            :error-messages="errors"
-            label="Price(in rupees)"
-            required
-          />
-          <v-text-field
-            v-model="name"
-            :counter="10"
-            :error-messages="errors"
-            label="M.R.P(in rupees)"
-            required
-          />
-          <v-select
-            v-model="select"
-            :items="items"
-            :error-messages="errors"
-            label="Course Validity(in days)"
-            data-vv-name="select"
-            required
-          />
-          <v-text-field
-            v-model="name"
-            :counter="10"
-            :error-messages="errors"
-            label="Duration"
-            required
-          />
-          <v-text-field
-            v-model="name"
-            :counter="10"
-            :error-messages="errors"
-            label="Lecture Count"
-            required
-          />
-          <v-select
-            v-model="select"
-            :items="items"
-            :error-messages="errors"
-            label="Course Type"
-            data-vv-name="select"
-            required
-          />
+        > -->
+        <v-row>
+          <v-col cols="12" sm="12" md="6" lg="6">
+            <v-text-field
+              v-model="name"
+              :counter="10"
+              :error-messages="errors"
+              label="Title"
+              required
+          /></v-col>
+          <v-col cols="12" sm="12" md="6" lg="6">
+            <v-text-field
+              v-model="name"
+              :counter="10"
+              type="number"
+              :error-messages="errors"
+              label="Price(in rupees)"
+              required
+          /></v-col>
+        </v-row>
+        <v-row>
+          <v-col cols="12" sm="12" md="6" lg="6">
+            <v-text-field
+              v-model="name"
+              :counter="10"
+              type="number"
+              :error-messages="errors"
+              label="M.R.P(in rupees)"
+              required
+          /></v-col>
+          <v-col cols="12" sm="12" md="6" lg="6">
+            <v-text-field
+              v-model="name"
+              :counter="10"
+              type="number"
+              :error-messages="errors"
+              label="Course Validity(in days)"
+              required /></v-col
+        ></v-row>
+        <v-row>
+          <v-col cols="12" sm="12" md="6" lg="6">
+            <v-text-field
+              v-model="name"
+              :counter="10"
+              type="number"
+              :error-messages="errors"
+              label="Duration(in mins)"
+              required
+          /></v-col>
+          <v-col cols="12" sm="12" md="6" lg="6">
+            <v-text-field
+              v-model="name"
+              :counter="10"
+              type="number"
+              :error-messages="errors"
+              label="Lecture Count"
+              required /></v-col
+        ></v-row>
+        <v-row>
+          <v-col cols="12" sm="12" md="6" lg="6">
+            <v-select
+              v-model="select"
+              :items="items"
+              :error-messages="errors"
+              label="Course Type"
+              data-vv-name="select"
+              required
+            />
+          </v-col>
 
-          <v-select
-            v-model="select"
-            :items="items"
-            :error-messages="errors"
-            label="Promotion Type"
-            data-vv-name="select"
-            required
-          />
-        </validation-provider>
+          <v-col cols="12" sm="12" md="6" lg="6">
+            <v-select :items="items2" label="Promotion Type"></v-select> </v-col
+        ></v-row>
+        <v-row>
+          <v-col cols="12" sm="12" md="6" lg="6">
+            <v-select :items="items" label="Course Type"></v-select>
+          </v-col>
+          <v-col cols="12" sm="12" md="6" lg="6">
+            <v-select label="Select Option"></v-select>
+          </v-col>
+        </v-row>
+        <v-row>
+          <v-col cols="12" sm="12" md="6" lg="6">
+            <v-file-input prepend-icon="" false accept="image/*" label="Thumbnail"></v-file-input>
+          </v-col>
+        </v-row>
+
+        <!-- </validation-provider> -->
         <!-- <validation-provider
         v-slot="{ errors }"
         name="phoneNumber"
@@ -100,86 +130,86 @@
       >
 
       </validation-provider> -->
-        <v-btn
-          class="mr-4"
-          type="submit"
-          :disabled="invalid"
-        >
-          submit
-        </v-btn>
-        <v-btn @click="clear">
-          clear
-        </v-btn>
+        <v-row style="margin-top:3rem" ><v-btn class="mr-4" type="submit" :disabled="invalid"> submit </v-btn>
+        <v-btn @click="clear"> clear </v-btn></v-row>
       </form>
     </validation-observer>
   </div>
 </template>
 
 <script>
-  import { required, digits, email, max, regex } from 'vee-validate/dist/rules'
-  import {
-    extend,
-    ValidationObserver,
+import { required, digits, email, max, regex } from "vee-validate/dist/rules";
+import {
+  extend,
+  ValidationObserver,
+  ValidationProvider,
+  setInteractionMode,
+} from "vee-validate";
+
+setInteractionMode("eager");
+
+extend("digits", {
+  ...digits,
+  message: "{_field_} needs to be {length} digits. ({_value_})",
+});
+
+extend("required", {
+  ...required,
+  message: "{_field_} can not be empty",
+});
+
+extend("max", {
+  ...max,
+  message: "{_field_} may not be greater than {length} characters",
+});
+
+extend("regex", {
+  ...regex,
+  message: "{_field_} {_value_} does not match {regex}",
+});
+
+extend("email", {
+  ...email,
+  message: "Email must be valid",
+});
+
+export default {
+  name: "AddCourse",
+  components: {
     ValidationProvider,
-    setInteractionMode,
-  } from 'vee-validate'
+    ValidationObserver,
+  },
+  data: () => ({
+    name: "",
+    phoneNumber: "",
+    email: "",
+    select: null,
+    items: [
+      "Online Course",
+      "Offline Course",
+      "Individual Course",
+      "Complete Course",
+      "Crash Course",
+      "Marathon Course",
+    ],
+    items2: ["Normal", "New", "Popular", "Top 10", "Recommended"],
+    checkbox: null,
+  }),
 
-  setInteractionMode('eager')
-
-  extend('digits', {
-    ...digits,
-    message: '{_field_} needs to be {length} digits. ({_value_})',
-  })
-
-  extend('required', {
-    ...required,
-    message: '{_field_} can not be empty',
-  })
-
-  extend('max', {
-    ...max,
-    message: '{_field_} may not be greater than {length} characters',
-  })
-
-  extend('regex', {
-    ...regex,
-    message: '{_field_} {_value_} does not match {regex}',
-  })
-
-  extend('email', {
-    ...email,
-    message: 'Email must be valid',
-  })
-
-  export default {
-    name: 'AddCourse',
-    components: {
-      ValidationProvider,
-      ValidationObserver,
+  methods: {
+    submit() {
+      this.$refs.observer.validate();
     },
-    data: () => ({
-      name: '',
-      phoneNumber: '',
-      email: '',
-      select: null,
-      items: ['Item 1', 'Item 2', 'Item 3', 'Item 4'],
-      checkbox: null,
-    }),
-
-    methods: {
-      submit () {
-        this.$refs.observer.validate()
-      },
-      clear () {
-        this.name = ''
-        this.phoneNumber = ''
-        this.email = ''
-        this.select = null
-        this.checkbox = null
-        this.$refs.observer.reset()
-      },
+    clear() {
+      this.name = "";
+      this.phoneNumber = "";
+      this.email = "";
+      this.select = null;
+      this.checkbox = null;
+      this.$refs.observer.reset();
     },
-  }
+  },
+};
 </script>
 <style>
 #only {
