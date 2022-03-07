@@ -37,11 +37,7 @@ const state = {
     //   icon: 'mdi-map-marker',
     //   to: '/maps/google/',
     // },
-    {
-      title: 'Login',
-      icon: 'mdi-bell',
-      to: '/views/login/',
-    },
+    
     {
       title: 'Course List',
       icon: 'mdi-format-list-numbered',
