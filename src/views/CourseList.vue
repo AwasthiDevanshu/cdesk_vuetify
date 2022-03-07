@@ -15,11 +15,8 @@
       >
         <div class="card_content">
           <v-responsive class="pt-2 my-1">
-            <!-- <img src="https://cdn.vuetifyjs.com/images/cards/cooking.png" /> 
-            -->
             <img
-              src="https://media.istockphoto.com/photos/nicelooking-young-caucasian-businesswoman-using-tablet-at-the-desk-in-picture-id1285788477?b=1&k=20&m=1285788477&s=170667a&w=0&h=lG4CjKoWrSN1r2IlriadOVUJt2p6u97uYLrOkl4vrzc="
-            />
+              :src="item.thumbnail"/>
           </v-responsive>
           <v-card-text class="card-text">
             <div
