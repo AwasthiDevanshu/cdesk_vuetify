@@ -16,8 +16,9 @@ const router = new Router({
     return { x: 0, y: 0 }
   },
   routes: [
+    route('Login'),
     layout('Default', [
-      route('Dashboard'),
+      route('Dashboard',null,'home'),
 
       // Pages
       route('UserProfile', null, 'components/profile'),
@@ -31,7 +32,6 @@ const router = new Router({
       // Maps
       route('Google Maps', null, 'maps/google'),
 
-      route('Login', null, 'views/login'),
 
       route('CourseList', null, 'views/courselist'),
 
