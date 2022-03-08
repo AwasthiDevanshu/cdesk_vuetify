@@ -18,7 +18,7 @@
           /></v-col>
           <v-col cols="12" sm="12" md="6" lg="6">
             <v-text-field
-              v-model="name"
+              v-model="price"
               :counter="10"
               type="number"
               :error-messages="errors"
@@ -29,7 +29,7 @@
         <v-row>
           <v-col cols="12" sm="12" md="6" lg="6">
             <v-text-field
-              v-model="name"
+              v-model="mrp"
               :counter="10"
               type="number"
               :error-messages="errors"
@@ -38,7 +38,7 @@
           /></v-col>
           <v-col cols="12" sm="12" md="6" lg="6">
             <v-text-field
-              v-model="name"
+              v-model="Cval"
               :counter="10"
               type="number"
               :error-messages="errors"
@@ -48,7 +48,7 @@
         <v-row>
           <v-col cols="12" sm="12" md="6" lg="6">
             <v-text-field
-              v-model="name"
+              v-model="Duration"
               :counter="10"
               type="number"
               :error-messages="errors"
@@ -57,7 +57,7 @@
           /></v-col>
           <v-col cols="12" sm="12" md="6" lg="6">
             <v-text-field
-              v-model="name"
+              v-model="LecCount"
               :counter="10"
               type="number"
               :error-messages="errors"
@@ -89,7 +89,12 @@
         </v-row>
         <v-row>
           <v-col cols="12" sm="12" md="6" lg="6">
-            <v-file-input prepend-icon="" false accept="image/*" label="Thumbnail"></v-file-input>
+            <v-file-input
+              prepend-icon=""
+              false
+              accept="image/*"
+              label="Thumbnail"
+            ></v-file-input>
           </v-col>
         </v-row>
 
@@ -130,8 +135,12 @@
       >
 
       </validation-provider> -->
-        <v-row style="margin-top:3rem" ><v-btn class="mr-4" type="submit" :disabled="invalid"> submit </v-btn>
-        <v-btn @click="clear"> clear </v-btn></v-row>
+        <v-row style="margin-top: 3rem"
+          ><v-btn class="mr-4" type="submit" :disabled="invalid">
+            submit
+          </v-btn>
+          <v-btn @click="clear"> clear </v-btn></v-row
+        >
       </form>
     </validation-observer>
   </div>
@@ -181,6 +190,12 @@ export default {
   },
   data: () => ({
     name: "",
+    price: "",
+    mrp: "",
+    Cval: "",
+    Duration: "",
+    LecCount: "",
+
     phoneNumber: "",
     email: "",
     select: null,

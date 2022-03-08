@@ -3,6 +3,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import { trailingSlash } from '@/util/helpers'
 import { layout, route } from '@/util/routes'
+import AddCourse from '../views/AddCourse.vue'
 
 Vue.use(Router)
 
@@ -60,9 +61,13 @@ const router = new Router({
 
       route('AddTestSeries', null, 'views/AddTestSeries'),
 
-      route('EditCourse', null, 'views/EditCourse'),
+      // route('EditCourse', null, 'views/EditCourse'),
 
       route('TimeTable', null, 'views/TimeTable'),
+
+      route('AddCourse', null, 'views/Addcourse'),
+
+      route('Edit Course', null, 'views/EditCourse')
 
     ]),
   ],

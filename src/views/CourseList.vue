@@ -1,9 +1,21 @@
 <template>
   <div class="team">
     <v-card elevation="4" class="card1">
-      <v-btn   large flat fab class="grey darken-2 white--text">
-        <v-icon> mdi-plus </v-icon>
-      </v-btn>
+      <v-tooltip top color = "grey" >
+        <template v-slot:activator="{ on , adcourse }">
+          <v-btn
+            v-bind="adcourse"
+            v-on="on"
+            @click="toaddcourse()"
+            large
+            text
+            fab
+            class="grey darken-2 white--text"
+          >
+            <v-icon> mdi-plus </v-icon>
+          </v-btn></template
+        ><span>Add Course</span></v-tooltip
+      >
     </v-card>
     <v-container class="container">
       <v-card
@@ -37,7 +49,8 @@
           </v-card-text>
           <v-card-actions>
             <v-row class="row1">
-              <v-tooltip bottom>
+              <v-tooltip bottom  color = "grey"
+              >
                 <template v-slot:activator="{ on, attrs }">
                   <v-btn class="mx-2" fab dark small color="#e91e63">
                     <v-icon v-bind="attrs" v-on="on" dark>
@@ -48,22 +61,26 @@
                 <span>Show Videos</span>
               </v-tooltip>
 
-              <v-tooltip bottom>
+              <v-tooltip bottom color = "grey"
+              >
                 <template v-slot:activator="{ on, attrs }">
-                  <v-btn class="mx-2" fab dark small color="#4caf50">
-                    <v-icon
-                      click="editCandidateModal(item, index)"
-                      v-bind="attrs"
-                      v-on="on"
-                      dark
-                    >
+                  <v-btn
+                    @click="toEditCourse"
+                    class="mx-2"
+                    fab
+                    dark
+                    small
+                    color="#4caf50"
+                  >
+                    <v-icon click="toEditCourse" v-bind="attrs" v-on="on" dark>
                       mdi-pencil
                     </v-icon>
                   </v-btn>
                 </template>
                 <span>Edit</span>
               </v-tooltip>
-              <v-tooltip bottom>
+              <v-tooltip bottom color = "grey"
+              >
                 <template v-slot:activator="{ on, attrs }">
                   <v-btn class="mx-2" fab dark small color="#00cae3">
                     <v-icon v-bind="attrs" v-on="on" dark>
@@ -73,7 +90,8 @@
                 </template>
                 <span>Time Table</span>
               </v-tooltip>
-              <v-tooltip bottom>
+              <v-tooltip bottom color = "grey"
+              >
                 <template v-slot:activator="{ on, attrs }">
                   <v-btn class="mx-2" fab dark small color="#ff9800">
                     <v-icon v-bind="attrs" v-on="on" dark>
@@ -232,6 +250,12 @@ export default {
 
     showNotesList(item) {
       this.$router.replace("/gnotes/" + item.courseId);
+    },
+    toaddcourse() {
+      this.$router.push("/views/addcourse");
+    },
+    toEditCourse() {
+      this.$router.push("/views/editcourse");
     },
   },
 };

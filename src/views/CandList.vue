@@ -1,5 +1,5 @@
 <template>
-  <v-container v-show="showCandidateList" fluid tag="section">
+  <v-container  fluid tag="section">
     <v-row>
       <v-col cols="12">
         <v-row >
@@ -117,7 +117,7 @@
       </v-col>
     </v-row>
      <v-dialog title="modelTitle" v-model="dialog" :show.sync="candidateModal" persistent max-width="600px">
-                     <v-form  @submit.prevent="addEditCandidate()">
+                     <v-form @submit.prevent="addEditCandidate()">
                       <v-card>
                         <v-card-title>
                           <span class="text-h5">Add Candidate</span>
@@ -130,6 +130,7 @@
                                   label="Username*"
                                   v-model= "username"
                                   required
+                                  placeholder="Enter Username"
                                 ></v-text-field>
                               </v-col>
                               <v-col cols="12" sm="6" md="6">
@@ -138,7 +139,7 @@
                               <v-col cols="12" sm="6" md="6">
                                 <v-text-field
                                  v-model= "name"
-                                  label="anjdsdhysujdjsnjxu*"
+                                  label="name*"
                                   persistent-hint
                                   required
                                 ></v-text-field>
@@ -168,6 +169,7 @@
                           <v-btn
                             color="blue darken-1"
                             text
+                            
                             @click= "dialog = false"
                           >
                             Close
@@ -175,6 +177,7 @@
                           <v-btn
                             color="blue darken-1"
                             type="submit"
+                            :disabled="disabled"
                             text
                             @click= "dialog = false"
                           >

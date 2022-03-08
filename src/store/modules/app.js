@@ -37,11 +37,11 @@ const state = {
     //   icon: 'mdi-map-marker',
     //   to: '/maps/google/',
     // },
-    {
-      title: 'Login',
-      icon: 'mdi-bell',
-      to: '/views/login/',
-    },
+    // {
+    //   title: 'Login',
+    //   icon: 'mdi-bell',
+    //   to: '/views/login/',
+    // },
     {
       title: 'Course List',
       icon: 'mdi-format-list-numbered',
@@ -52,11 +52,11 @@ const state = {
     //   icon: 'mdi-map-marker',
     //   to: '/views/AddVideo/',
     // },
-    {
-      title: 'Add Course',
-      icon: 'mdi-folder-multiple-plus',
-      to: '/views/AddCourse/',
-    },
+    // {
+    //   title: 'Add Course',
+    //   icon: 'mdi-folder-multiple-plus',
+    //   to: '/views/AddCourse/',
+    // },
     {
       title: 'Add Video',
       icon: 'mdi-youtube',
@@ -111,11 +111,11 @@ const state = {
       icon: 'mdi-chart-box-plus-outline',
       to: '/views/addtestseries/',
     },
-    {
-      title: 'Edit Course',
-      icon: 'mdi-pencil',
-      to: '/views/editcourse/',
-    },
+    // {
+    //   title: 'Edit Course',
+    //   icon: 'mdi-pencil',
+    //   to: '/views/editcourse/',
+    // },
     {
       title: 'Add Time Table',
       icon: 'mdi-table',
